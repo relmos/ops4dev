@@ -1,0 +1,6 @@
+Create: ./kafka-topics.sh --create --zookeeper zkname:2181 --replication-factor 2 --topic ops4devtest1 --config retention.ms=14400000 --partitions 6
+Alter: 1) ./kafka-topics.sh --alter --zookeeper zkname:2181 --topic ops4devtest2 --config retention.ms=28800000
+       2) ./kafka-configs.sh --alter --zookeeper zkname:2181 --entity-name ops4devtest2 --entity-type topics --add-config retention.ms=28800000
+reassign: ./kafka-appsflyer-distribute-new.sh "topicname" 21 3 36
+Describe: ./kafka-topics.sh --zookeeper zkname --describe
+
